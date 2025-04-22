@@ -1,11 +1,20 @@
 import React from "react";
 
-const Colors = () => {
+const Colors = ({ data }) => {
   return (
-    <div style={{ backgroundColor: "#f0f8ff", padding: "20px" }}> 
-      <h1>This is Colors component</h1>
-    </div>
-    //changing the background color behind colors component. 
+    <>
+      {data && data.map((d) => {
+        return (
+            //making color of text black
+          <div className="card" key={d.id} style={{ background: d.color, color: "black" }}>
+            <div className="container">
+              <h1><b>{d.name}</b></h1>
+              <p>{d.color}</p>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 
